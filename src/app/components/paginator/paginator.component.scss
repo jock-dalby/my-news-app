@@ -1,0 +1,18 @@
+.paginator-wrapper {
+  margin: 50px auto
+}
+
+.paginator-button {
+  border: 1px solid black;
+  padding: 10px;
+  cursor: pointer;
+
+  &.disabled {
+   opacity: 0.2; 
+   pointer-events: none;
+  }
+}
+
+#prev-button {
+  margin-right: 5px;
+}

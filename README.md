@@ -12,7 +12,7 @@ Using your front-end skills, complete this front-end component that takes a JSON
 - [x] Refactor and clean up the codebase
 - [x] Add in unit testing
 - [x] Improve performance
-- How would you implement pagination?
+- [x] How would you implement pagination?
 - [x] Clean up the design
 
 **Rules**

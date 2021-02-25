@@ -7,12 +7,16 @@ import { StoriesTableComponent } from './components/stories-table/stories-table.
 import { StoriesService } from './services/stories.service';
 import { CommonModule } from '@angular/common';
 import { StoriesTableRowComponent } from './components/stories-table/stories-table-row/stories-table-row.component';
+import { PaginatorComponent } from './components/paginator/paginator.component';
+import { StoriesContainer } from './containers/stories/stories.container';
 
 @NgModule({
   declarations: [
     AppComponent,
     StoriesTableComponent,
-    StoriesTableRowComponent
+    StoriesTableRowComponent,
+    PaginatorComponent,
+    StoriesContainer
   ],
   imports: [
     BrowserModule,
