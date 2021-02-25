@@ -1,10 +1,10 @@
 <div data-test-id="stories-table-row-wrapper">
-  <h4>{{storyData.standFirst}} Although if you're talking to.</h4>
-  <p>{{storyData.dateCreated | date }}</p>
-  <img *ngIf="storyData.thumbnailImage?.link && !this.hasImageError else imagePlaceholder" [src]="storyData.thumbnailImage?.link" (error)="hasImageError = true"/>
+  <h4 data-test-id="stories-table-row-header">{{storyData.standFirst}} {{standFirstSuffix}}</h4>
+  <p data-test-id="stories-table-row-date">{{storyData.dateCreated | date }}</p>
+  <img *ngIf="storyData.thumbnailImage?.link && !this.hasImageError else imagePlaceholder" [src]="storyData.thumbnailImage?.link" data-test-id="stories-table-row-image" (error)="hasImageError = true"/>
   <ul>
     <li *ngFor="let domainLink of storyData.domainLinks" >
-      <a [href]="domainLink.link">{{domainLink.name}}</a>
+      <a [href]="domainLink.link" data-test-id="stories-table-row-domain-link">{{domainLink.name}}</a>
     </li>
   </ul>
 </div>
