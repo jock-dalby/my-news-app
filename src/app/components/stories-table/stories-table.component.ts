@@ -11,4 +11,8 @@ export class StoriesTableComponent {
   stories$: Observable<IStoryData[]> = this.storiesService.getStories$();
 
   constructor(private storiesService: StoriesService) {}
+
+  identify(_, storyData: IStoryData) {
+    return storyData.id.value;
+ }
 }

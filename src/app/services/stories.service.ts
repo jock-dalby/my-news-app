@@ -14,7 +14,11 @@ export interface IStoryData {
   domainLinks: {
     link: string;
     name: string;
-  }[]
+  }[];
+  id: {
+    value: string;
+    link: string;
+  }
 }
 
 export interface IFetchDataResponse {

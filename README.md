@@ -9,11 +9,11 @@ Using your front-end skills, complete this front-end component that takes a JSON
 - [x] Get the applications working and building
 - [x] Add an image, item links and date to the list of news stories
 - [x] Commit your changes to GIT
-- Refactor and clean up the codebase
-- Add in unit testing
-- Improve performance
+- [x] Refactor and clean up the codebase
+- [x] Add in unit testing
+- [x] Improve performance
 - How would you implement pagination?
-- Clean up the design
+- [x] Clean up the design
 
 **Rules**
 
