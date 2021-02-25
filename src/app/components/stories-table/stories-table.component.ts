@@ -15,7 +15,7 @@ export class StoriesTableComponent {
 
   @Output() pageChange = new EventEmitter<number>()
 
-  identifyItem(_, storyData: IStoryData) {
+  identifyItem(_, storyData: IStoryData): string {
     return storyData.id.value;
   }
 }

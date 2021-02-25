@@ -1,4 +1,4 @@
-import { IStoryData } from './../../services/stories.service';
+import { IStoryData } from './stories.service';
 
 export const MOCK_STORY_DATA: IStoryData[] = [
   {

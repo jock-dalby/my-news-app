@@ -5,7 +5,7 @@ import { map, share, switchMap } from 'rxjs/operators';
 import { IFetchDataResponse, IPage } from './../../services/stories.service';
 import { IStoryData, StoriesService } from '../../services/stories.service';
 
-const PAGE_SIZE = 5;
+export const PAGE_SIZE = 5;
 @Component({
   selector: 'app-stories',
   template: `<app-stories-table [page]="pageBS | async" [stories]="stories$ | async" [totalNumberOfPages]="totalNumberOfPages$ | async" (pageChange)="onPageChange($event)"></app-stories-table>`,
@@ -18,11 +18,11 @@ export class StoriesContainer {
   }), share());
 
   stories$: Observable<IStoryData[]> = this.data$.pipe(map(res => res.results));
-  totalNumberOfPages$: Observable<number> = this.data$.pipe(map(res => res.totalHits / PAGE_SIZE));
+  totalNumberOfPages$: Observable<number> = this.data$.pipe(map(res => Math.ceil(res.totalHits / PAGE_SIZE)));
 
   constructor(private storiesService: StoriesService) {}
 
-  onPageChange(offset: number) {
+  onPageChange(offset: number): void {
     this.pageBS.next({ offset, pageSize: PAGE_SIZE })
   }
 }

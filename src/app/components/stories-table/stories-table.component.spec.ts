@@ -1,11 +1,11 @@
-import { StoriesTableRowComponent } from './stories-table-row/stories-table-row.component';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { of } from 'rxjs';
-import { StoriesTableComponent } from './stories-table.component';
-import { StoriesService } from '../../services/stories.service';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { MOCK_STORY_DATA } from './stories-table.util';
+
+import { PaginatorComponent } from './../paginator/paginator.component';
+import { StoriesTableRowComponent } from './stories-table-row/stories-table-row.component';
+import { StoriesTableComponent } from './stories-table.component';
+import { MOCK_STORY_DATA } from '../../services/stories-table.util';
 
 describe('StoriesTableComponent', () => {
   let component: StoriesTableComponent;
@@ -16,21 +16,18 @@ describe('StoriesTableComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [
         StoriesTableComponent,
-        StoriesTableRowComponent
-      ],
-      providers: [
-        {
-          provide: StoriesService,
-          useValue: {
-            getStories$: () => of(MOCK_STORY_DATA)
-          }
-        }
+        StoriesTableRowComponent,
+        PaginatorComponent
       ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(StoriesTableComponent);
-    component = fixture.componentInstance;
     element = fixture.debugElement;
+    component = fixture.componentInstance;
+
+    component.stories = MOCK_STORY_DATA;
+    component.page = { offset: 0, pageSize: MOCK_STORY_DATA.length }
+    component.totalNumberOfPages = MOCK_STORY_DATA.length
     fixture.detectChanges();
   });
 

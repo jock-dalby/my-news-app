@@ -33,7 +33,7 @@ export interface IPage {
 }
 @Injectable()
 export class StoriesService {
-  
+
   constructor(private http: HttpClient) {}
 
   cache = {};
@@ -63,7 +63,7 @@ export class StoriesService {
 
   getData$(page: IPage): Observable<IFetchDataResponse> {
     const cacheValue = this.cache[JSON.stringify(page)];
-    if(cacheValue) {
+    if (cacheValue) {
       return of(cacheValue)
     }
     return this.fetchData$(page)
