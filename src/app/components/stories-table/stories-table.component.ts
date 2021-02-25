@@ -2,7 +2,6 @@ import { IPage } from './../../services/stories.service';
 import { IStoryData } from '../../services/stories.service';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-const PAGE_SIZE = 5;
 @Component({
   selector: 'app-stories-table',
   templateUrl: './stories-table.component.html',
