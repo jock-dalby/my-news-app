@@ -1,0 +1,15 @@
+<div data-test-id="stories-table-row-wrapper">
+  <h4>{{storyData.standFirst}} Although if you're talking to.</h4>
+  <p>{{storyData.dateCreated | date }}</p>
+  <img *ngIf="storyData.thumbnailImage?.link && !this.hasImageError else imagePlaceholder" [src]="storyData.thumbnailImage?.link" (error)="hasImageError = true"/>
+  <ul>
+    <li *ngFor="let domainLink of storyData.domainLinks" >
+      <a [href]="domainLink.link">{{domainLink.name}}</a>
+    </li>
+  </ul>
+</div>
+
+<ng-template #imagePlaceholder>
+  <!-- Should be replaced with more suitable placeholder image in keeping with company branding -->
+  <img class="image-placeholder"/>
+</ng-template>

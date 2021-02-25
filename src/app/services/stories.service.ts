@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators'
 
 const DATA_URL = "api/data.json"
 
-interface IDataResult {
+export interface IStoryData {
   standFirst: string;
   dateCreated: Date;
   thumbnailImage: {
@@ -18,7 +18,7 @@ interface IDataResult {
 }
 
 export interface IFetchDataResponse {
-  results: IDataResult[]
+  results: IStoryData[]
 }
 
 @Injectable()

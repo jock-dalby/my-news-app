@@ -3,14 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from './app.component';
-import { StoriesComponent } from './stories/stories.component';
-import { StoriesService } from './stories/stories.service';
+import { StoriesTableComponent } from './components/stories-table/stories-table.component';
+import { StoriesService } from './services/stories.service';
 import { CommonModule } from '@angular/common';
+import { StoriesTableRowComponent } from './components/stories-table/stories-table-row/stories-table-row.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StoriesComponent
+    StoriesTableComponent,
+    StoriesTableRowComponent
   ],
   imports: [
     BrowserModule,

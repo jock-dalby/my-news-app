@@ -1,0 +1,4 @@
+<ng-container *ngFor="let item of (stories$ | async); let last = last">
+  <app-stories-table-row [storyData]="item"></app-stories-table-row>
+  <hr *ngIf="!last">
+</ng-container>

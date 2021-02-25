@@ -1,4 +1,4 @@
-import { DebugElement } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
@@ -12,7 +12,8 @@ describe('AppComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [
         AppComponent
-      ]
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
 
     fixture = TestBed.createComponent(AppComponent);
@@ -26,7 +27,7 @@ describe('AppComponent', () => {
   });
 
   it(`should have as title 'News stories'`, () => {
-    const title = element.query(By.css('#app-title'));
+    const title = element.query(By.css('[data-test-id="app-title"]'));
     expect(title.nativeElement.innerHTML).toEqual(component.title);
   });
 });
