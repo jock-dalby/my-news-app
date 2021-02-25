@@ -8,11 +8,11 @@ import { tap } from 'rxjs/operators'
   styleUrls: ['./stories.component.scss']
 })
 export class StoriesComponent {
-  title = 'my-news-app';
+  title = 'News stories';
 
   imageErrorsMap = {}
 
-  stories$ = this.storiesService.getStories$().pipe(tap(console.log));
+  stories$ = this.storiesService.getStories$();
 
   constructor(private storiesService: StoriesService) {}
 
