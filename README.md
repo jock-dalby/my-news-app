@@ -1,3 +1,35 @@
+**_Welcome to the NewsCorp Front-End Coding Challenge_**
+
+**_The challenge_**
+
+Using your front-end skills, complete this front-end component that takes a JSON feed (simulated from our Content API (CAPI) data) and render a list of news into a HTML component.
+
+**We want you to approach this challenge in the below order:**
+
+- [x] Get the applications working and building
+- [x] Add an image, item links and date to the list of news stories
+- [x] Commit your changes to GIT
+- Refactor and clean up the codebase
+- Add in unit testing
+- Improve performance
+- How would you implement pagination?
+- Clean up the design
+
+**Rules**
+
+You can research throughout the challenge
+You can implement any framework/library you feel is necessary
+
+**Helpful GIT commits**
+
+`git push`
+
+`git pull`
+
+`git commit -m "GIT commit message"`
+
+Good luck!
+
 # MyNewsApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.2.
