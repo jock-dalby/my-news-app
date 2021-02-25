@@ -1,5 +1,6 @@
-import { IStoryData } from '../../../services/stories.service';
 import { Component, Input } from '@angular/core';
+
+import { IStoryData } from '../../../services/stories.service';
 
 @Component({
   selector: 'app-stories-table-row',

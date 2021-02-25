@@ -1,6 +1,7 @@
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+
 import { IPage } from './../../services/stories.service';
 import { IStoryData } from '../../services/stories.service';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-stories-table',

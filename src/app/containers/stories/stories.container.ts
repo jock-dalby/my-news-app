@@ -1,9 +1,9 @@
-import { of } from 'rxjs';
-import { IFetchDataResponse, IPage } from './../../services/stories.service';
-import { IStoryData, StoriesService } from '../../services/stories.service';
 import { Component } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map, share, switchMap } from 'rxjs/operators';
+
+import { IFetchDataResponse, IPage } from './../../services/stories.service';
+import { IStoryData, StoriesService } from '../../services/stories.service';
 
 const PAGE_SIZE = 5;
 @Component({
