@@ -8,7 +8,7 @@ import { IStoryData, StoriesService } from '../../services/stories.service';
 export const PAGE_SIZE = 5;
 @Component({
   selector: 'app-stories',
-  template: `<app-stories-table [page]="pageBS | async" [stories]="stories$ | async" [totalNumberOfPages]="totalNumberOfPages$ | async" (pageChange)="onPageChange($event)"></app-stories-table>`,
+  template: `<app-stories-table [page]="pageBS | async" [stories]="stories$ | async" [totalNumberOfPages]="totalNumberOfPages$ | async" (offsetChange)="onOffsetChange($event)"></app-stories-table>`,
 })
 export class StoriesContainer {
   pageBS = new BehaviorSubject<IPage>({ offset: 0, pageSize: PAGE_SIZE });
@@ -22,7 +22,7 @@ export class StoriesContainer {
 
   constructor(private storiesService: StoriesService) {}
 
-  onPageChange(offset: number): void {
+  onOffsetChange(offset: number): void {
     this.pageBS.next({ offset, pageSize: PAGE_SIZE })
   }
 }

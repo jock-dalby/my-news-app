@@ -13,7 +13,7 @@ export class StoriesTableComponent {
   @Input() stories: IStoryData[];
   @Input() totalNumberOfPages: number;
 
-  @Output() pageChange = new EventEmitter<number>()
+  @Output() offsetChange = new EventEmitter<number>()
 
   identifyItem(_, storyData: IStoryData): string {
     return storyData.id.value;

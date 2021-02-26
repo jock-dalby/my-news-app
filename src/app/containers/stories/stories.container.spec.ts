@@ -75,14 +75,14 @@ describe('StoriesContainer', () => {
     })
   })
 
-  describe('onPageChange', () => {
+  describe('onOffsetChange', () => {
     let spy: jasmine.Spy;
 
     beforeEach(() => {
       spy = spyOn(component.pageBS, 'next');
     })
     it('should map offSet to pageBS', () => {
-      component.onPageChange(42);
+      component.onOffsetChange(42);
       expect(spy).toHaveBeenCalledWith({ offset: 42, pageSize: PAGE_SIZE })
     })
   })

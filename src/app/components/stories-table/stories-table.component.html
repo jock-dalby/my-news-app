@@ -8,7 +8,7 @@
 <ng-template [ngTemplateOutlet]="paginator"></ng-template>
 
 <ng-template #paginator >
-  <app-paginator [currentOffset]="page.offset" [totalNumberOfPages]="totalNumberOfPages" (pageChange)="pageChange.emit($event)"></app-paginator>
+  <app-paginator [currentOffset]="page.offset" [totalNumberOfPages]="totalNumberOfPages" (onOffsetChange)="offsetChange.emit($event)"></app-paginator>
 </ng-template>
 
 
