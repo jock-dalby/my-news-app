@@ -1,6 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {

@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
 import { map, tap } from 'rxjs/operators'
 
-const DATA_URL = "api/data.json"
+export const STORIES_SERVICE_DATA_URL = "api/data.json"
 
 export interface IStoryData {
   standFirst: string;
@@ -45,7 +45,7 @@ export class StoriesService {
     // }))
 
     // Client-side pagination done to dev and demo paginator
-    return this.http.get<IFetchDataResponse>(`${DATA_URL}`).pipe(
+    return this.http.get<IFetchDataResponse>(STORIES_SERVICE_DATA_URL).pipe(
       map(res => {
         return {
           ...res,
