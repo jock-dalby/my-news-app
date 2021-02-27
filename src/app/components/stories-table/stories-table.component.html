@@ -1,14 +1,17 @@
 <ng-template [ngTemplateOutlet]="paginator"></ng-template>
 
-<ng-container *ngFor="let item of stories; let last = last; trackBy: identifyItem">
-  <app-stories-table-row [storyData]="item"></app-stories-table-row>
-  <hr *ngIf="!last">
-</ng-container>
+<div class="container">
+  <div class="frontpage">
+    <div *ngFor="let item of stories; let i = index; trackBy: identifyItem" class="fp-cell fp-cell--{{i + 1}}">
+      <app-stories-table-row [storyData]="item"></app-stories-table-row>
+    </div>
+  </div>
+</div>
 
 <ng-template [ngTemplateOutlet]="paginator"></ng-template>
 
 <ng-template #paginator >
-  <app-paginator [currentOffset]="page.offset" [totalNumberOfPages]="totalNumberOfPages" (onOffsetChange)="offsetChange.emit($event)"></app-paginator>
+  <app-paginator [currentOffset]="page.offset" [totalNumberOfPages]="totalNumberOfPages" (offsetChange)="offsetChange.emit($event)"></app-paginator>
 </ng-template>
 
 

@@ -2,6 +2,7 @@ import { IStoryData } from './stories.service';
 
 export const MOCK_STORY_DATA: IStoryData[] = [
   {
+    title: 'TITLE 1',
     standFirst: 'Story 1',
     dateCreated: new Date(1996, 2, 1),
     thumbnailImage: {
@@ -23,6 +24,7 @@ export const MOCK_STORY_DATA: IStoryData[] = [
     }
   },
   {
+    title: 'TITLE 2',
     standFirst: 'Story 2',
     dateCreated: new Date(2000, 3, 4),
     thumbnailImage: {},
@@ -33,6 +35,7 @@ export const MOCK_STORY_DATA: IStoryData[] = [
     }
   },
   {
+    title: 'TITLE 3',
     standFirst: 'Story 3',
     dateCreated: new Date(2010, 5, 8),
     thumbnailImage: {},

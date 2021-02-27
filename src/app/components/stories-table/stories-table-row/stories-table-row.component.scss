@@ -1,5 +1,22 @@
+.stories-table-row-wrapper {
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  height: 100%;
+}
+
+.stories-table-row-header {
+  margin-bottom: 5px;
+}
+
+.stories-table-row-date {
+  margin-top: 5px;
+  color: #575859;
+}
+
 .image-placeholder {
   background-image: url(../../../../assets/image-placeholder.png);
   width: 100px;
   height: 75px;
 }
+

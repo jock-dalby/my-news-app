@@ -33,14 +33,20 @@ describe('StoriesTableRowComponent', () => {
     expect(component).toBeTruthy();
   });
 
+
   it('should display header', () => {
     const headerElem = element.query(By.css('[data-test-id="stories-table-row-header"]'));
-    expect(headerElem.nativeElement.innerHTML).toEqual(`${mockData.standFirst} ${STAND_FIRST_SUFFIX}`);
+    expect(headerElem.nativeElement.innerHTML).toEqual(mockData.title);
   });
 
   it('should display date', () => {
     const dateElem = element.query(By.css('[data-test-id="stories-table-row-date"]'));
     expect(dateElem.nativeElement.innerHTML).toEqual('Mar 1, 1996');
+  });
+
+  it('should display text', () => {
+    const headerElem = element.query(By.css('[data-test-id="stories-table-row-text"]'));
+    expect(headerElem.nativeElement.innerHTML).toEqual(`${mockData.standFirst} ${STAND_FIRST_SUFFIX}`);
   });
 
   it('should display image', () => {

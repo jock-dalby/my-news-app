@@ -1,5 +1,6 @@
 .paginator-wrapper {
-  margin: 50px auto
+  margin: 50px auto;
+  width: 155px;
 }
 
 .paginator-button {
@@ -14,5 +15,8 @@
 }
 
 #prev-button {
-  margin-right: 5px;
+  margin-right: 10px;
+}
+#next-button {
+  margin-left: 10px;
 }

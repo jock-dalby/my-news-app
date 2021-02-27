@@ -11,6 +11,7 @@ describe('PaginatorComponent', () => {
 
   let prevButton: DebugElement;
   let nextButton: DebugElement;
+  let pageText: DebugElement;
   let offsetChangeSpy: jasmine.Spy;
 
   beforeEach(async () => {
@@ -29,6 +30,7 @@ describe('PaginatorComponent', () => {
 
     prevButton = element.query(By.css('[data-test-id="paginator-prev-button"]'))
     nextButton = element.query(By.css('[data-test-id="paginator-next-button"]'))
+    pageText = element.query(By.css('[data-test-id="paginator-text"]'))
 
     offsetChangeSpy = spyOn(component.offsetChange, 'emit')
 
@@ -59,6 +61,10 @@ describe('PaginatorComponent', () => {
       it('should emit updated offset', () => {
         expect(offsetChangeSpy).toHaveBeenCalledWith(1)
       })
+
+      it('should display correct page text', () => {
+        expect(pageText.nativeElement.innerHTML).toEqual(`Page ${component.currentOffset + 1} of ${component.totalNumberOfPages}`)
+      })
     })
   })
 
@@ -86,6 +92,10 @@ describe('PaginatorComponent', () => {
 
       it('should emit updated offset', () => {
         expect(offsetChangeSpy).toHaveBeenCalledWith(2)
+      })
+
+      it('should display correct page text', () => {
+        expect(pageText.nativeElement.innerHTML).toEqual(`Page ${component.currentOffset + 1} of ${component.totalNumberOfPages}`)
       })
     })
   })

@@ -6,6 +6,7 @@ import { map, tap } from 'rxjs/operators'
 export const STORIES_SERVICE_DATA_URL = "api/data.json"
 
 export interface IStoryData {
+  title: string;
   standFirst: string;
   dateCreated: Date;
   thumbnailImage: {

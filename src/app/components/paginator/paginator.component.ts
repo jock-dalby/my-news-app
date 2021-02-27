@@ -5,7 +5,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   template: `
   <div class="paginator-wrapper">
     <span class="paginator-button" id="prev-button" data-test-id="paginator-prev-button" [ngClass]="{ 'disabled': currentOffset === 0 }" (click)="onOffsetChange(currentOffset - 1)"><</span>
-    <span class="paginator-button" data-test-id="paginator-next-button" [ngClass]="{ 'disabled': currentOffset >= totalNumberOfPages - 1 }" (click)="onOffsetChange(currentOffset + 1)">></span>
+    <span  data-test-id="paginator-text">Page {{currentOffset + 1}} of {{totalNumberOfPages}}</span>
+    <span class="paginator-button" id="next-button" data-test-id="paginator-next-button" [ngClass]="{ 'disabled': currentOffset >= totalNumberOfPages - 1 }" (click)="onOffsetChange(currentOffset + 1)">></span>
   </div>
   `,
   styleUrls: ['paginator.component.scss']

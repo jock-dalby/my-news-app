@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map, share, switchMap } from 'rxjs/operators';
+import { map, share, switchMap, tap } from 'rxjs/operators';
 
 import { IFetchDataResponse, IPage } from './../../services/stories.service';
 import { IStoryData, StoriesService } from '../../services/stories.service';
 
-export const PAGE_SIZE = 5;
+export const PAGE_SIZE = 4;
 @Component({
   selector: 'app-stories',
   template: `<app-stories-table [page]="pageBS | async" [stories]="stories$ | async" [totalNumberOfPages]="totalNumberOfPages$ | async" (offsetChange)="onOffsetChange($event)"></app-stories-table>`,

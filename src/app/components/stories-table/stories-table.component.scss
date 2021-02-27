@@ -1,0 +1,30 @@
+.container {
+  overflow: hidden;
+}
+
+.frontpage {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1px;
+  margin: 0 -16px;
+  background-color: #DADCE0;
+  border: 1px solid #DADCE0;
+}
+
+.fp-cell {
+  background-color: #fff;
+  padding: 16px;
+}
+
+.fp-cell--1 {
+  grid-row: 1 / span 2;
+}
+
+.fp-cell--2 {
+  grid-column: 2 / span 2;
+}
+
+.fp-cell--3 {
+  grid-column: 2;
+}
