@@ -1,12 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from "@angular/core/testing";
+import { first } from 'rxjs/operators';
 
 import { of } from 'rxjs';
-import { first } from 'rxjs/operators';
 import { MOCK_STORY_DATA } from './stories-table.util';
-
-import { IFetchDataResponse, IPage, StoriesService, STORIES_SERVICE_DATA_URL } from "./stories.service";
+import { IFetchDataResponse, IPage, StoriesService } from "./stories.service";
 
 describe('StoriesService', () => {
 

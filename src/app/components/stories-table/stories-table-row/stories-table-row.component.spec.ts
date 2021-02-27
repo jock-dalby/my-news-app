@@ -1,10 +1,11 @@
-import { IStoryData } from './../../../services/stories.service';
+import { MOCK_STORY_DATA } from 'src/app/services/stories-table.util';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
+
 import { STAND_FIRST_SUFFIX, StoriesTableRowComponent } from './stories-table-row.component';
 import { PaginatorComponent } from '../../paginator/paginator.component';
-import { MOCK_STORY_DATA } from 'src/app/services/stories-table.util';
+import { IStoryData } from './../../../services/stories.service';
 
 describe('StoriesTableRowComponent', () => {
   let component: StoriesTableRowComponent;

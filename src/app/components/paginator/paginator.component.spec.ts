@@ -1,8 +1,8 @@
+import { By } from '@angular/platform-browser';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 
 import { PaginatorComponent } from './paginator.component';
-import { By } from '@angular/platform-browser';
 
 describe('PaginatorComponent', () => {
   let component: PaginatorComponent;

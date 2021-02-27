@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map, share, switchMap, tap } from 'rxjs/operators';
+import { map, share, switchMap } from 'rxjs/operators';
 
 import { IFetchDataResponse, IPage } from './../../services/stories.service';
 import { IStoryData, StoriesService } from '../../services/stories.service';
