@@ -8,7 +8,7 @@ import { IStoryData, StoriesService } from '../../services/stories.service';
 export const PAGE_SIZE = 4;
 @Component({
   selector: 'app-stories',
-  template: `<app-stories-table [page]="pageBS | async" [stories]="stories$ | async" [totalNumberOfPages]="totalNumberOfPages$ | async" (offsetChange)="onOffsetChange($event)"></app-stories-table>`,
+  template: `<app-stories-table [page]="pageBS | async" [stories]="stories$ | async" [totalNumberOfPages]="totalNumberOfPages$ | async" [loadingPage]="loadingState$ | async" (offsetChange)="onOffsetChange($event)"></app-stories-table>`,
 })
 export class StoriesContainer {
   pageBS = new BehaviorSubject<IPage>({ offset: 0, pageSize: PAGE_SIZE });
@@ -16,6 +16,10 @@ export class StoriesContainer {
   data$: Observable<IFetchDataResponse> = this.pageBS.pipe(switchMap(page => {
     return this.storiesService.getData$(page)
   }), share());
+
+  loadingState$: Observable<boolean> = this.pageBS.pipe(switchMap(page => {
+    return this.storiesService.getLoadingState(page)
+  }));
 
   stories$: Observable<IStoryData[]> = this.data$.pipe(map(res => res.results));
   totalNumberOfPages$: Observable<number> = this.data$.pipe(map(res => Math.ceil(res.totalHits / PAGE_SIZE)));

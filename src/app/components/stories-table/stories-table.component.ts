@@ -11,6 +11,7 @@ import { IStoryData } from '../../services/stories.service';
 export class StoriesTableComponent {
   @Input() page: IPage;
   @Input() stories: IStoryData[];
+  @Input() loadingPage: boolean;
   @Input() totalNumberOfPages: number;
 
   @Output() offsetChange = new EventEmitter<number>()

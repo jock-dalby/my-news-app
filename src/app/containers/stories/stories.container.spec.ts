@@ -35,7 +35,8 @@ describe('StoriesContainer', () => {
         {
           provide: StoriesService,
           useValue: {
-            getData$: () => of(mockResponse)
+            getData$: () => of(mockResponse),
+            getLoadingState: () => of(false)
           }
         }
       ]

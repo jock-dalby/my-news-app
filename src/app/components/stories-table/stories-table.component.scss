@@ -1,6 +1,10 @@
 .container {
   overflow: hidden;
 
+  &.loading {
+    opacity: 0.4;
+  }
+
   & .stories-grid {
     position: relative;
     display: grid;

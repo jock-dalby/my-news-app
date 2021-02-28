@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable, of } from "rxjs";
-import { map, tap } from 'rxjs/operators'
+import { BehaviorSubject, interval, Observable, of } from "rxjs";
+import { delay, delayWhen, map, tap } from 'rxjs/operators'
 
 export const STORIES_SERVICE_DATA_URL = "api/data.json"
 
@@ -37,16 +37,18 @@ export class StoriesService {
 
   constructor(private http: HttpClient) {}
 
-  cache: { [hash: string]: IFetchDataResponse } = {};
+  dataCache: { [hash: string]: IFetchDataResponse } = {};
+  loadingStatesBS: BehaviorSubject<{ [hash: string]: boolean }> = new BehaviorSubject({});
 
   private fetchData$(page: IPage): Observable<IFetchDataResponse> {
     // Server-side pagination
     // return this.http.get<IFetchDataResponse>(`${DATA_URL}?offset=${page.offset}&pageSize=${page.pageSize}`).pipe(tap(res => {
-    //   this.cache[JSON.stringify(page)] = res;
+    //   this.cache[this.getHash(page)] = res;
     // }))
 
     // Client-side pagination done to dev and demo paginator
     return this.http.get<IFetchDataResponse>(STORIES_SERVICE_DATA_URL).pipe(
+      delayWhen(() => page.offset === 0 ? of(undefined) : interval(1000)),
       map(res => {
         return {
           ...res,
@@ -58,16 +60,33 @@ export class StoriesService {
         }
       }),
       tap(res => {
-        this.cache[JSON.stringify(page)] = res;
+        this.dataCache[this.getHash(page)] = res;
       }))
   }
 
   getData$(page: IPage): Observable<IFetchDataResponse> {
-    const cacheValue = this.cache[JSON.stringify(page)];
+    const hash = this.getHash(page);
+    const cacheValue = this.dataCache[hash];
     if (cacheValue) {
       return of(cacheValue)
     }
-    return this.fetchData$(page)
+    this.updateLoadingState(page, true);
+    return this.fetchData$(page).pipe(tap(() => this.updateLoadingState(page, false)))
+  }
+
+  getLoadingState(page: IPage): Observable<boolean> {
+    return this.loadingStatesBS.pipe(map(loadingStates => loadingStates[this.getHash(page)] || false));
+  }
+
+  private getHash(page: IPage): string {
+    return JSON.stringify(page);
+  }
+
+  private updateLoadingState(page: IPage, loadingState: boolean): void {
+    this.loadingStatesBS.next({
+      ...this.loadingStatesBS.value,
+      [this.getHash(page)]: loadingState
+    });
   }
 
 }

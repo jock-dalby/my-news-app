@@ -49,7 +49,7 @@ describe('StoriesService', () => {
   describe('getData$', () => {
     describe('if data is in cache', () => {
       beforeEach(() => {
-        storiesService.cache[JSON.stringify(page)] = {
+        storiesService.dataCache[JSON.stringify(page)] = {
           ...mockResponse,
           totalHits: 100
         }
@@ -71,7 +71,7 @@ describe('StoriesService', () => {
 
       it('should store api response in cache', () => {
         storiesService.getData$(page).pipe(first()).subscribe(() => {
-          expect(storiesService.cache[JSON.stringify(page)]).toEqual(mockResponse);
+          expect(storiesService.dataCache[JSON.stringify(page)]).toEqual(mockResponse);
         })
       })
     });
