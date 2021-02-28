@@ -1,6 +1,7 @@
 <ng-template [ngTemplateOutlet]="paginator"></ng-template>
 
-<div class="container" [ngClass]="{ 'loading': loadingPage}">
+<!-- TODO: Add loading spinner -->
+<div class="container" [ngClass]="{ 'loading': loadingPage }">
   <div class="stories-grid">
     <div *ngFor="let story of stories; let i = index; trackBy: identifyStory" class="stories-grid-cell stories-grid-cell--{{i + 1}}">
       <app-stories-table-row [storyData]="story"></app-stories-table-row>

@@ -39,4 +39,6 @@ describe('StoriesTableComponent', () => {
     const storyTableRows = element.queryAll(By.css('[data-test-id="stories-table-row-wrapper"]'));
     expect(storyTableRows.length).toEqual(3);
   });
+
+  // TODO: Add test for loadingPage input
 });

@@ -38,6 +38,8 @@ export class StoriesService {
   constructor(private http: HttpClient) {}
 
   dataCache: { [hash: string]: IFetchDataResponse } = {};
+
+  // TODO: This can be updated to also include error handling
   loadingStatesBS: BehaviorSubject<{ [hash: string]: boolean }> = new BehaviorSubject({});
 
   private fetchData$(page: IPage): Observable<IFetchDataResponse> {
@@ -74,7 +76,7 @@ export class StoriesService {
     return this.fetchData$(page).pipe(tap(() => this.updateLoadingState(page, false)))
   }
 
-  getLoadingState(page: IPage): Observable<boolean> {
+  getLoadingState$(page: IPage): Observable<boolean> {
     return this.loadingStatesBS.pipe(map(loadingStates => loadingStates[this.getHash(page)] || false));
   }
 

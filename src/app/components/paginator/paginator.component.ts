@@ -15,6 +15,7 @@ export class PaginatorComponent {
   @Input() totalNumberOfPages: number;
   @Input() currentOffset: number;
   @Input() disabled = false;
+  
   @Output() offsetChange = new EventEmitter<number>()
 
   onOffsetChange(newOffset: number): void {

@@ -18,7 +18,7 @@ export class StoriesContainer {
   }), share());
 
   loadingState$: Observable<boolean> = this.pageBS.pipe(switchMap(page => {
-    return this.storiesService.getLoadingState(page)
+    return this.storiesService.getLoadingState$(page)
   }));
 
   stories$: Observable<IStoryData[]> = this.data$.pipe(map(res => res.results));

@@ -47,7 +47,7 @@ describe('StoriesService', () => {
   });
 
   describe('getData$', () => {
-    describe('if data is in cache', () => {
+    describe('if data is in dataCache', () => {
       beforeEach(() => {
         storiesService.dataCache[JSON.stringify(page)] = {
           ...mockResponse,
@@ -55,25 +55,27 @@ describe('StoriesService', () => {
         }
       })
 
-      it('should get value from cache', () => {
+      it('should get value from dataCache', () => {
         storiesService.getData$(page).pipe(first()).subscribe(data => {
           expect(data.totalHits).toBe(100)
         })
       })
     });
 
-    describe('if data is not in cache', () => {
+    describe('if data is not in dataCache', () => {
       it('should get value from api call', () => {
         storiesService.getData$(page).pipe(first()).subscribe(data => {
           expect(data.totalHits).toBe(mockResponse.totalHits)
         })
       })
 
-      it('should store api response in cache', () => {
+      it('should store api response in dataCache', () => {
         storiesService.getData$(page).pipe(first()).subscribe(() => {
           expect(storiesService.dataCache[JSON.stringify(page)]).toEqual(mockResponse);
         })
       })
     });
   })
+
+  // TODO: add tests for getLoadingState$
 });
