@@ -37,7 +37,7 @@ export class StoriesService {
 
   constructor(private http: HttpClient) {}
 
-  cache = {};
+  cache: { [hash: string]: IFetchDataResponse } = {};
 
   private fetchData$(page: IPage): Observable<IFetchDataResponse> {
     // Server-side pagination

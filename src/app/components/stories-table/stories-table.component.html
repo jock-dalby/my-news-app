@@ -1,9 +1,9 @@
 <ng-template [ngTemplateOutlet]="paginator"></ng-template>
 
 <div class="container">
-  <div class="front-page">
-    <div *ngFor="let item of stories; let i = index; trackBy: identifyItem" class="front-page-cell front-page-cell--{{i + 1}}">
-      <app-stories-table-row [storyData]="item"></app-stories-table-row>
+  <div class="stories-grid">
+    <div *ngFor="let story of stories; let i = index; trackBy: identifyStory" class="stories-grid-cell stories-grid-cell--{{i + 1}}">
+      <app-stories-table-row [storyData]="story"></app-stories-table-row>
     </div>
   </div>
 </div>
@@ -11,7 +11,7 @@
 <ng-template [ngTemplateOutlet]="paginator"></ng-template>
 
 <ng-template #paginator >
-  <app-paginator [currentOffset]="page.offset" [totalNumberOfront-pageages]="totalNumberOfront-pageages" (offsetChange)="offsetChange.emit($event)"></app-paginator>
+  <app-paginator [currentOffset]="page.offset" [totalNumberOfPages]="totalNumberOfPages" (offsetChange)="offsetChange.emit($event)"></app-paginator>
 </ng-template>
 
 

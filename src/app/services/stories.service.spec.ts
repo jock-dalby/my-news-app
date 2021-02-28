@@ -69,7 +69,7 @@ describe('StoriesService', () => {
         })
       })
 
-      it('should store network response in cache', () => {
+      it('should store api response in cache', () => {
         storiesService.getData$(page).pipe(first()).subscribe(() => {
           expect(storiesService.cache[JSON.stringify(page)]).toEqual(mockResponse);
         })

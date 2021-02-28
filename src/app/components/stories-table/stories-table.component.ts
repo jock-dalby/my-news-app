@@ -15,7 +15,7 @@ export class StoriesTableComponent {
 
   @Output() offsetChange = new EventEmitter<number>()
 
-  identifyItem(_, storyData: IStoryData): string {
-    return storyData.id.value;
+  identifyStory(_, story: IStoryData): string {
+    return story.id.value;
   }
 }
